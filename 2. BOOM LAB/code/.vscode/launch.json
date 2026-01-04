@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch with Disassembly",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bomb",
+            "args": ["${workspaceFolder}/test.txt"],
+            "stopAtEntry": true, // 在入口暂停，方便你一开始就查看汇编
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "加载自动断点脚本",
+                    "text": "source ${workspaceFolder}/debug_script.gdb",
+                    "ignoreFailures": false
+                }
+            ],
+            "externalConsole": false,
+            "internalConsoleOptions": "openOnSessionStart", // 自动打开调试控制台
+            "logging": {
+                "engineLogging": false // 可选：开启日志，用于排错
+            }
+        }
+    ]
+}
